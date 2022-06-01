@@ -1,0 +1,1292 @@
+[
+ {
+  "CVE ID": "cve-2018-1312",
+  "CVE description": "in apache httpd 2.2.0 to 2.4.29, when generating an http digest authentication challenge, the nonce sent to prevent reply attacks was not correctly generated using a pseudo-random seed. in a cluster of servers using a common digest authentication configuration, http requests could be replayed across servers by an attacker without detection.",
+  "NIST subcategory ID": "PR.AC-7",
+  "NIST subcategory description": "users, devices, and other assets are authenticated (e.g., single-factor, multi-factor) commensurate with the risk of the transaction (e.g., individuals’ security and privacy risks and other organizational risks)"
+ },
+ {
+  "CVE ID": "cve-2017-7679",
+  "CVE description": "in apache httpd 2.2.x before 2.2.33 and 2.4.x before 2.4.26, mod_mime can read one byte past the end of a buffer when sending a malicious content-type response header.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2016-8612",
+  "CVE description": "apache http server mod_cluster before version httpd 2.4.23 is vulnerable to an improper input validation in the protocol parsing logic in the load balancer resulting in a segmentation fault in the serving httpd process.",
+  "NIST subcategory ID": "PR.PT-5",
+  "NIST subcategory description": "mechanisms (e.g., failsafe, load balancing, hot swap) are implemented to achieve resilience requirements in normal and adverse situations"
+ },
+ {
+  "CVE ID": "cve-2016-4975",
+  "CVE description": "possible crlf injection allowing http response splitting attacks for sites which use mod_userdir. this issue was mitigated by changes made in 2.4.25 and 2.2.32 which prohibit cr or lf injection into the \"location\" or other outbound header key or value. fixed in apache http server 2.4.25 (affected 2.4.1-2.4.23). fixed in apache http server 2.2.32 (affected 2.2.0-2.2.31).",
+  "NIST subcategory ID": "PR.DS-6",
+  "NIST subcategory description": "integrity checking mechanisms are used to verify software, firmware, and information integrity"
+ },
+ {
+  "CVE ID": "cve-2018-17199",
+  "CVE description": "in apache http server 2.4 release 2.4.37 and prior, mod_session checks the session expiry time before decoding the session. this causes session expiry time to be ignored for mod_session_cookie sessions since the expiry time is loaded when the session is decoded.",
+  "NIST subcategory ID": "PR.AC-7",
+  "NIST subcategory description": "users, devices, and other assets are authenticated (e.g., single-factor, multi-factor) commensurate with the risk of the transaction (e.g., individuals’ security and privacy risks and other organizational risks)"
+ },
+ {
+  "CVE ID": "cve-2017-15710",
+  "CVE description": "in apache httpd 2.0.23 to 2.0.65, 2.2.0 to 2.2.34, and 2.4.0 to 2.4.29, mod_authnz_ldap, if configured with authldapcharsetconfig, uses the accept-language header value to lookup the right charset encoding when verifying the user's credentials. if the header value is not present in the charset conversion table, a fallback mechanism is used to truncate it to a two characters value to allow a quick retry (for example, 'en-us' is truncated to 'en'). a header value of less than two characters forces an out of bound write of one nul byte to a memory location that is not part of the string. in the worst case, quite unlikely, the process would crash which could be used as a denial of service attack. in the more likely case, this memory is already reserved for future use and the issue has no effect at all.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2017-15715",
+  "CVE description": "in apache httpd 2.4.0 to 2.4.29, the expression specified in <filesmatch> could match '$' to a newline character in a malicious filename, rather than matching only the end of the filename. this could be exploited in environments where uploads of some files are are externally blocked, but only by matching the trailing portion of the filename.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-1283",
+  "CVE description": "in apache httpd 2.4.0 to 2.4.29, when mod_session is configured to forward its session data to cgi applications (sessionenv on, not the default), a remote user may influence their content by using a \"session\" header. this comes from the \"http_session\" variable name used by mod_session to forward its data to cgis, since the prefix \"http_\" is also used by the apache http server to pass http header fields, per cgi specifications.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2014-0231",
+  "CVE description": "the mod_cgid module in the apache http server before 2.4.10 does not have a timeout mechanism, which allows remote attackers to cause a denial of service (process hang) via a request to a cgi script that does not read from its stdin file descriptor.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-6438",
+  "CVE description": "the dav_xml_get_cdata function in main\/util.c in the mod_dav module in the apache http server before 2.4.8 does not properly remove whitespace characters from cdata sections, which allows remote attackers to cause a denial of service (daemon crash) via a crafted dav write request.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-0098",
+  "CVE description": "the log_cookie function in mod_log_config.c in the mod_log_config module in the apache http server before 2.4.8 allows remote attackers to cause a denial of service (segmentation fault and daemon crash) via a crafted cookie that is not properly handled during truncation.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2017-9798",
+  "CVE description": "apache httpd allows remote attackers to read secret data from process memory if the limit directive can be set in a user's .htaccess file, or if httpd.conf has certain misconfigurations, aka optionsbleed. this affects the apache http server through 2.2.34 and 2.4.x through 2.4.27. the attacker sends an unauthenticated options http request when attempting to read secret data. this is a use-after-free issue and thus secret data is not always sent, and the specific data depends on many factors including configuration. exploitation with .htaccess can be blocked with a patch to the ap_limit_section function in server\/core.c.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2017-9788",
+  "CVE description": "in apache httpd before 2.2.34 and 2.4.x before 2.4.27, the value placeholder in [proxy-]authorization headers of type 'digest' was not initialized or reset before or between successive key=value assignments by mod_auth_digest. providing an initial key with no '=' assignment could reflect the stale value of uninitialized pool memory used by the prior request, leading to leakage of potentially confidential information, and a segfault in other cases resulting in denial of service.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2016-8743",
+  "CVE description": "apache http server, in all releases prior to 2.2.32 and 2.4.25, was liberal in the whitespace accepted from requests and sent in response lines and headers. accepting these different behaviors represented a security concern when httpd participates in any chain of proxies or interacts with back-end application servers, either through mod_proxy or using conventional cgi mechanisms, and may result in request smuggling, response splitting and cache pollution.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2016-0736",
+  "CVE description": "in apache http server versions 2.4.0 to 2.4.23, mod_session_crypto was encrypting its data\/cookie using the configured ciphers with possibly either cbc or ecb modes of operation (aes256-cbc by default), hence no selectable or builtin authenticated encryption. this made it vulnerable to padding oracle attacks, particularly with cbc.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2016-2161",
+  "CVE description": "in apache http server versions 2.4.0 to 2.4.23, malicious input to mod_auth_digest can cause the server to crash, and each instance continues to crash even for subsequently valid requests.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2015-3184",
+  "CVE description": "mod_authz_svn in apache subversion 1.7.x before 1.7.21 and 1.8.x before 1.8.14, when using apache httpd 2.4.x, does not properly restrict anonymous access, which allows remote anonymous users to read hidden files via the path name.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2015-3185",
+  "CVE description": "the ap_some_auth_required function in server\/request.c in the apache http server 2.4.x before 2.4.14 does not consider that a require directive may be associated with an authorization setting rather than an authentication setting, which allows remote attackers to bypass intended access restrictions in opportunistic circumstances by leveraging the presence of a module that relies on the 2.2 api behavior.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2014-8109",
+  "CVE description": "mod_lua.c in the mod_lua module in the apache http server 2.3.x and 2.4.x through 2.4.10 does not support an httpd configuration in which the same lua authorization provider is used with different arguments within different contexts, which allows remote attackers to bypass intended access restrictions in opportunistic circumstances by leveraging multiple require directives, as demonstrated by a configuration that specifies authorization for one group to access a certain directory, and authorization for a second group to access a second directory.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2014-0118",
+  "CVE description": "the deflate_in_filter function in mod_deflate.c in the mod_deflate module in the apache http server before 2.4.10, when request body decompression is enabled, allows remote attackers to cause a denial of service (resource consumption) via crafted request data that decompresses to a much larger size.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-0226",
+  "CVE description": "race condition in the mod_status module in the apache http server before 2.4.10 allows remote attackers to cause a denial of service (heap-based buffer overflow), or possibly obtain sensitive credential information or execute arbitrary code, via a crafted request that triggers improper scoreboard handling within the status_handler function in modules\/generators\/mod_status.c and the lua_ap_scoreboard_worker function in modules\/lua\/lua_request.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-3523",
+  "CVE description": "memory leak in the winnt_accept function in server\/mpm\/winnt\/child.c in the winnt mpm in the apache http server 2.4.x before 2.4.10 on windows, when the default acceptfilter is enabled, allows remote attackers to cause a denial of service (memory consumption) via crafted requests.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-0117",
+  "CVE description": "the mod_proxy module in the apache http server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted http connection header.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2013-4352",
+  "CVE description": "the cache_invalidate function in modules\/cache\/cache_storage.c in the mod_cache module in the apache http server 2.4.6, when a caching forward proxy is enabled, allows remote http servers to cause a denial of service (null pointer dereference and daemon crash) via vectors that trigger a missing hostname value.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2019-9637",
+  "CVE description": "an issue was discovered in php before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. due to the way rename() across filesystems is implemented, it is possible that file being renamed is briefly available with wrong permissions while the rename is ongoing, thus enabling unauthorized users to access the data.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2019-9638",
+  "CVE description": "an issue was discovered in the exif component in php before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. there is an uninitialized read in exif_process_ifd_in_makernote because of mishandling the maker_note->offset relationship to value_len.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-9639",
+  "CVE description": "an issue was discovered in the exif component in php before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. there is an uninitialized read in exif_process_ifd_in_makernote because of mishandling the data_len variable.",
+  "NIST subcategory ID": "PR.DS-1",
+  "NIST subcategory description": "data-at-rest is protected"
+ },
+ {
+  "CVE ID": "cve-2019-9641",
+  "CVE description": "an issue was discovered in the exif component in php before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. there is an uninitialized read in exif_process_ifd_in_tiff.",
+  "NIST subcategory ID": "PR.DS-1",
+  "NIST subcategory description": "data-at-rest is protected"
+ },
+ {
+  "CVE ID": "cve-2019-1552",
+  "CVE description": "openssl has internal defaults for a directory tree where it can find a configuration file as well as certificates used for verification in tls. this directory is most commonly referred to as openssldir, and is configurable with the --prefix \/ --openssldir configuration options. for openssl versions 1.1.0 and 1.1.1, the mingw configuration targets assume that resulting programs and libraries are installed in a unix-like environment and the default prefix for program installation as well as for openssldir should be '\/usr\/local'. however, mingw programs are windows programs, and as such, find themselves looking at sub-directories of 'c:\/usr\/local', which may be world writable, which enables untrusted users to modify openssl's default configuration, insert ca certificates, modify (or even replace) existing engine modules, etc. for openssl 1.0.2, '\/usr\/local\/ssl' is used as default for openssldir on all unix and windows targets, including visual c builds. however, some build instructions for the diverse windows targets on 1.0.2 encourage you to specify your own --prefix. openssl versions 1.1.1, 1.1.0 and 1.0.2 are affected by this issue. due to the limited scope of affected deployments this has been assessed as low severity and therefore we are not creating new releases at this time. fixed in openssl 1.1.1d (affected 1.1.1-1.1.1c). fixed in openssl 1.1.0l (affected 1.1.0-1.1.0k). fixed in openssl 1.0.2t (affected 1.0.2-1.0.2s).",
+  "NIST subcategory ID": "PR.DS-6",
+  "NIST subcategory description": "integrity checking mechanisms are used to verify software, firmware, and information integrity"
+ },
+ {
+  "CVE ID": "cve-2018-0734",
+  "CVE description": "the openssl dsa signature algorithm has been shown to be vulnerable to a timing side channel attack. an attacker could use variations in the signing algorithm to recover the private key. fixed in openssl 1.1.1a (affected 1.1.1). fixed in openssl 1.1.0j (affected 1.1.0-1.1.0i). fixed in openssl 1.0.2q (affected 1.0.2-1.0.2p).",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2017-3735",
+  "CVE description": "while parsing an ipaddressfamily extension in an x.509 certificate, it is possible to do a one-byte overread. this would result in an incorrect text display of the certificate. this bug has been present since 2006 and is present in all versions of openssl before 1.0.2m and 1.1.0g.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-1559",
+  "CVE description": "if an application encounters a fatal protocol error and then calls ssl_shutdown() twice (once to send a close_notify, and once to receive one) then openssl can respond differently to the calling application if a 0 byte record is received with invalid padding compared to if a 0 byte record is received with an invalid mac. if the application then behaves differently based on that in a way that is detectable to the remote peer, then this amounts to a padding oracle that could be used to decrypt data. in order for this to be exploitable \"non-stitched\" ciphersuites must be in use. stitched ciphersuites are optimised implementations of certain commonly used ciphersuites. also the application must call ssl_shutdown() twice even if a protocol error has occurred (applications should not do this but some do anyway). fixed in openssl 1.0.2r (affected 1.0.2-1.0.2q).",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-5407",
+  "CVE description": "simultaneous multi-threading (smt) in processors can enable local users to exploit software vulnerable to timing attacks via a side-channel timing attack on 'port contention'.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-0732",
+  "CVE description": "during key agreement in a tls handshake using a dh(e) based ciphersuite a malicious server can send a very large prime value to the client. this will cause the client to spend an unreasonably long period of time generating a key for this prime resulting in a hang until the client has finished. this could be exploited in a denial of service attack. fixed in openssl 1.1.0i-dev (affected 1.1.0-1.1.0h). fixed in openssl 1.0.2p-dev (affected 1.0.2-1.0.2o).",
+  "NIST subcategory ID": "PR.PT-4",
+  "NIST subcategory description": "communications and control networks are protected"
+ },
+ {
+  "CVE ID": "cve-2018-0737",
+  "CVE description": "the openssl rsa key generation algorithm has been shown to be vulnerable to a cache timing side channel attack. an attacker with sufficient access to mount cache timing attacks during the rsa key generation process could recover the private key. fixed in openssl 1.1.0i-dev (affected 1.1.0-1.1.0h). fixed in openssl 1.0.2p-dev (affected 1.0.2b-1.0.2o).",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2017-3737",
+  "CVE description": "openssl 1.0.2 (starting from version 1.0.2b) introduced an \"error state\" mechanism. the intent was that if a fatal error occurred during a handshake then openssl would move into the error state and would immediately fail if you attempted to continue the handshake. this works as designed for the explicit handshake functions (ssl_do_handshake(), ssl_accept() and ssl_connect()), however due to a bug it does not work correctly if ssl_read() or ssl_write() is called directly. in that scenario, if the handshake fails then a fatal error will be returned in the initial function call. if ssl_read()\/ssl_write() is subsequently called by the application for the same ssl object then it will succeed and the data is passed without being decrypted\/encrypted directly from the ssl\/tls record layer. in order to exploit this issue an application bug would have to be present that resulted in a call to ssl_read()\/ssl_write() being issued after having already received a fatal error. openssl version 1.0.2b-1.0.2m are affected. fixed in openssl 1.0.2n. openssl 1.1.0 is not affected.",
+  "NIST subcategory ID": "PR.DS-6",
+  "NIST subcategory description": "integrity checking mechanisms are used to verify software, firmware, and information integrity"
+ },
+ {
+  "CVE ID": "cve-2017-3738",
+  "CVE description": "there is an overflow bug in the avx2 montgomery multiplication procedure used in exponentiation with 1024-bit moduli. no ec algorithms are affected. analysis suggests that attacks against rsa and dsa as a result of this defect would be very difficult to perform and are not believed likely. attacks against dh1024 are considered just feasible, because most of the work necessary to deduce information about a private key may be performed offline. the amount of resources required for such an attack would be significant. however, for an attack on tls to be meaningful, the server would have to share the dh1024 private key among multiple clients, which is no longer an option since cve-2016-0701. this only affects processors that support the avx2 but not adx extensions like intel haswell (4th generation). note: the impact from this issue is similar to cve-2017-3736, cve-2017-3732 and cve-2015-3193. openssl version 1.0.2-1.0.2m and 1.1.0-1.1.0g are affected. fixed in openssl 1.0.2n. due to the low severity of this issue we are not issuing a new release of openssl 1.1.0 at this time. the fix will be included in openssl 1.1.0h when it becomes available. the fix is also available in commit e502cc86d in the openssl git repository.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-0739",
+  "CVE description": "constructed asn.1 types with a recursive definition (such as can be found in pkcs7) could eventually exceed the stack given malicious input with excessive recursion. this could result in a denial of service attack. there are no such structures used within ssl\/tls that come from untrusted sources so this is considered safe. fixed in openssl 1.1.0h (affected 1.1.0-1.1.0g). fixed in openssl 1.0.2o (affected 1.0.2b-1.0.2n).",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2017-3736",
+  "CVE description": "there is a carry propagating bug in the x86_64 montgomery squaring procedure in openssl before 1.0.2m and 1.1.0 before 1.1.0g. no ec algorithms are affected. analysis suggests that attacks against rsa and dsa as a result of this defect would be very difficult to perform and are not believed likely. attacks against dh are considered just feasible (although very difficult) because most of the work necessary to deduce information about a private key may be performed offline. the amount of resources required for such an attack would be very significant and likely only accessible to a limited number of attackers. an attacker would additionally need online access to an unpatched system using the target private key in a scenario with persistent dh parameters and a private key that is shared between multiple clients. this only affects processors that support the bmi1, bmi2 and adx extensions like intel broadwell (5th generation) and later or amd ryzen.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-19935",
+  "CVE description": "ext\/imap\/php_imap.c in php 5.x and 7.x before 7.3.0 allows remote attackers to cause a denial of service (null pointer dereference and application crash) via an empty string in the message argument to the imap_mail function.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-9020",
+  "CVE description": "an issue was discovered in php before 5.6.40, 7.x before 7.1.26, 7.2.x before 7.2.14, and 7.3.x before 7.3.1. invalid input to the function xmlrpc_decode() can lead to an invalid memory access (heap out of bounds read or read after free). this is related to xml_elem_parse_buf in ext\/xmlrpc\/libxmlrpc\/xml_element.c.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2019-9021",
+  "CVE description": "an issue was discovered in php before 5.6.40, 7.x before 7.1.26, 7.2.x before 7.2.14, and 7.3.x before 7.3.1. a heap-based buffer over-read in phar reading functions in the phar extension may allow an attacker to read allocated or unallocated memory past the actual data when trying to parse the file name, a different vulnerability than cve-2018-20783. this is related to phar_detect_phar_fname_ext in ext\/phar\/phar.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-9023",
+  "CVE description": "an issue was discovered in php before 5.6.40, 7.x before 7.1.26, 7.2.x before 7.2.14, and 7.3.x before 7.3.1. a number of heap-based buffer over-read instances are present in mbstring regular expression functions when supplied with invalid multibyte data. these occur in ext\/mbstring\/oniguruma\/regcomp.c, ext\/mbstring\/oniguruma\/regexec.c, ext\/mbstring\/oniguruma\/regparse.c, ext\/mbstring\/oniguruma\/enc\/unicode.c, and ext\/mbstring\/oniguruma\/src\/utf32_be.c when a multibyte regular expression pattern contains invalid multibyte sequences.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-9024",
+  "CVE description": "an issue was discovered in php before 5.6.40, 7.x before 7.1.26, 7.2.x before 7.2.14, and 7.3.x before 7.3.1. xmlrpc_decode() can allow a hostile xmlrpc server to cause php to read memory outside of allocated areas in base64_decode_xmlrpc in ext\/xmlrpc\/libxmlrpc\/base64.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-20783",
+  "CVE description": "in php before 5.6.39, 7.x before 7.0.33, 7.1.x before 7.1.25, and 7.2.x before 7.2.13, a buffer over-read in phar reading functions may allow an attacker to read allocated or unallocated memory past the actual data when trying to parse a .phar file. this is related to phar_parse_pharfile in ext\/phar\/phar.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2019-6977",
+  "CVE description": "gdimagecolormatch in gd_color_match.c in the gd graphics library (aka libgd) 2.2.5, as used in the imagecolormatch function in php before 5.6.40, 7.x before 7.1.26, 7.2.x before 7.2.14, and 7.3.x before 7.3.1, has a heap-based buffer overflow. this can be exploited by an attacker who is able to trigger imagecolormatch calls with crafted image data.",
+  "NIST subcategory ID": "PR.DS-6",
+  "NIST subcategory description": "integrity checking mechanisms are used to verify software, firmware, and information integrity"
+ },
+ {
+  "CVE ID": "cve-2018-17082",
+  "CVE description": "the apache2 component in php before 5.6.38, 7.0.x before 7.0.32, 7.1.x before 7.1.22, and 7.2.x before 7.2.10 allows xss via the body of a \"transfer-encoding: chunked\" request, because the bucket brigade is mishandled in the php_handler function in sapi\/apache2handler\/sapi_apache2.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-14883",
+  "CVE description": "an issue was discovered in php before 5.6.37, 7.0.x before 7.0.31, 7.1.x before 7.1.20, and 7.2.x before 7.2.8. an integer overflow leads to a heap-based buffer over-read in exif_thumbnail_extract of exif.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-15132",
+  "CVE description": "an issue was discovered in ext\/standard\/link_win32.c in php before 5.6.37, 7.0.x before 7.0.31, 7.1.x before 7.1.20, and 7.2.x before 7.2.8. the linkinfo function on windows doesn't implement the open_basedir check. this could be abused to find files on paths outside of the allowed directories.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-19395",
+  "CVE description": "ext\/standard\/var.c in php 5.x through 7.1.24 on windows allows attackers to cause a denial of service (null pointer dereference and application crash) because com and com_safearray_proxy return null in com_properties_get in ext\/com_dotnet\/com_handlers.c, as demonstrated by a serialize call on com(\"wscript.shell\").",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-19396",
+  "CVE description": "ext\/standard\/var_unserializer.c in php 5.x through 7.1.24 allows attackers to cause a denial of service (application crash) via an unserialize call for the com, dotnet, or variant class.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2018-10545",
+  "CVE description": "an issue was discovered in php before 5.6.35, 7.0.x before 7.0.29, 7.1.x before 7.1.16, and 7.2.x before 7.2.4. dumpable fpm child processes allow bypassing opcache access controls because fpm_unix.c makes a pr_set_dumpable prctl call, allowing one user (in a multiuser environment) to obtain sensitive information from the process memory of a second user's php applications by running gcore on the pid of the php-fpm worker process.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-10546",
+  "CVE description": "an issue was discovered in php before 5.6.36, 7.0.x before 7.0.30, 7.1.x before 7.1.17, and 7.2.x before 7.2.5. an infinite loop exists in ext\/iconv\/iconv.c because the iconv stream filter does not reject invalid multibyte sequences.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2018-10547",
+  "CVE description": "an issue was discovered in ext\/phar\/phar_object.c in php before 5.6.36, 7.0.x before 7.0.30, 7.1.x before 7.1.17, and 7.2.x before 7.2.5. there is reflected xss on the phar 403 and 404 error pages via request data of a request for a .phar file. note: this vulnerability exists because of an incomplete fix for cve-2018-5712.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-10548",
+  "CVE description": "an issue was discovered in php before 5.6.36, 7.0.x before 7.0.30, 7.1.x before 7.1.17, and 7.2.x before 7.2.5. ext\/ldap\/ldap.c allows remote ldap servers to cause a denial of service (null pointer dereference and application crash) because of mishandling of the ldap_get_dn return value.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-10549",
+  "CVE description": "an issue was discovered in php before 5.6.36, 7.0.x before 7.0.30, 7.1.x before 7.1.17, and 7.2.x before 7.2.5. exif_read_data in ext\/exif\/exif.c has an out-of-bounds read for crafted jpeg data because exif_iif_add_value mishandles the case of a makernote that lacks a final '\\0' character.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-19520",
+  "CVE description": "an issue was discovered in sdcms 1.6 with php 5.x. app\/admin\/controller\/themecontroller.php uses a check_bad function in an attempt to block certain php functions such as eval, but does not prevent use of preg_replace 'e' calls, allowing users to execute arbitrary code by leveraging access to admin template management.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2017-16642",
+  "CVE description": "in php before 5.6.32, 7.x before 7.0.25, and 7.1.x before 7.1.11, an error in the date extension's timelib_meridian handling of 'front of' and 'back of' directives could be used by attackers able to supply date strings to leak information from the interpreter, related to ext\/date\/lib\/parse_date.c out-of-bounds reads affecting the php_parse_date function. note: this is a different issue than cve-2017-11145.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2013-6420",
+  "CVE description": "the asn1_time_to_time_t function in ext\/openssl\/openssl.c in php before 5.3.28, 5.4.x before 5.4.23, and 5.5.x before 5.5.7 does not properly parse (1) notbefore and (2) notafter timestamps in x.509 certificates, which allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted certificate that is not properly handled by the openssl_x509_parse function.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2017-15906",
+  "CVE description": "the process_open function in sftp-server.c in openssh before 7.6 does not properly prevent write operations in readonly mode, which allows attackers to create zero-length files.",
+  "NIST subcategory ID": "ID.AM-5",
+  "NIST subcategory description": "resources (e.g., hardware, devices, data, time, personnel, and software) are prioritized based on their classification, criticality, and business value"
+ },
+ {
+  "CVE ID": "cve-2017-3167",
+  "CVE description": "in apache httpd 2.2.x before 2.2.33 and 2.4.x before 2.4.26, use of the ap_get_basic_auth_pw() by third-party modules outside of the authentication phase may lead to authentication requirements being bypassed.",
+  "NIST subcategory ID": "PR.AC-7",
+  "NIST subcategory description": "users, devices, and other assets are authenticated (e.g., single-factor, multi-factor) commensurate with the risk of the transaction (e.g., individuals’ security and privacy risks and other organizational risks)"
+ },
+ {
+  "CVE ID": "cve-2017-3169",
+  "CVE description": "in apache httpd 2.2.x before 2.2.33 and 2.4.x before 2.4.26, mod_ssl may dereference a null pointer when third-party modules call ap_hook_process_connection() during an http request to an https port.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2017-7668",
+  "CVE description": "the http strict parsing changes added in apache httpd 2.2.32 and 2.4.24 introduced a bug in token list parsing, which allows ap_find_token() to search past the end of its input string. by maliciously crafting a sequence of request headers, an attacker may be able to cause a segmentation fault, or to force ap_find_token() to return an incorrect value.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-4078",
+  "CVE description": "the ip security feature in microsoft internet information services (iis) 8.0 and 8.5 does not properly process wildcard allow and deny rules for domains within the \"ip address and domain restrictions\" list, which makes it easier for remote attackers to bypass an intended rule set via an http request, aka \"iis security feature bypass vulnerability.\"",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2019-0196",
+  "CVE description": "a vulnerability was found in apache http server 2.4.17 to 2.4.38. using fuzzed network input, the http\/2 request handling could be made to access freed memory in string comparison when determining the method of a request and thus process the request incorrectly.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2019-0197",
+  "CVE description": "a vulnerability was found in apache http server 2.4.34 to 2.4.38. when http\/2 was enabled for a http: host or h2upgrade was enabled for h2 on a https: host, an upgrade request from http\/1.1 to http\/2 that was not the first request on a connection could lead to a misconfiguration and crash. server that never enabled the h2 protocol or that only enabled it for https: and did not set \"h2upgrade on\" are unaffected by this issue.",
+  "NIST subcategory ID": "PR.PT-4",
+  "NIST subcategory description": "communications and control networks are protected"
+ },
+ {
+  "CVE ID": "cve-2019-0211",
+  "CVE description": "in apache http server 2.4 releases 2.4.17 to 2.4.38, with mpm event, worker or prefork, code executing in less-privileged child processes or threads (including scripts executed by an in-process scripting interpreter) could execute arbitrary code with the privileges of the parent process (usually root) by manipulating the scoreboard. non-unix systems are not affected.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2018-15919",
+  "CVE description": "remotely observable behaviour in auth-gss2.c in openssh through 7.8 could be used by remote attackers to detect existence of users on a target system when gss2 is in use. note: the discoverer states 'we understand that the openssh developers do not want to treat such a username enumeration (or \"oracle\") as a vulnerability.'",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2018-11763",
+  "CVE description": "in apache http server 2.4.17 to 2.4.34, by sending continuous, large settings frames a client can occupy a connection, server thread and cpu time without any connection timeout coming to effect. this affects only http\/2 connections. a possible mitigation is to not enable the h2 protocol.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2018-1333",
+  "CVE description": "by specially crafting http\/2 requests, workers would be allocated 60 seconds longer than necessary, leading to worker exhaustion and a denial of service. fixed in apache http server 2.4.34 (affected 2.4.18-2.4.30,2.4.33).",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2013-2249",
+  "CVE description": "mod_session_dbd.c in the mod_session_dbd module in the apache http server before 2.4.5 proceeds with save operations for a session without considering the dirty flag and the requirement for a new session id, which has unspecified impact and remote attack vectors.",
+  "NIST subcategory ID": "RS.AN-2",
+  "NIST subcategory description": "the impact of the incident is understood"
+ },
+ {
+  "CVE ID": "cve-2012-3499",
+  "CVE description": "multiple cross-site scripting (xss) vulnerabilities in the apache http server 2.2.x before 2.2.24-dev and 2.4.x before 2.4.4 allow remote attackers to inject arbitrary web script or html via vectors involving hostnames and uris in the (1) mod_imagemap, (2) mod_info, (3) mod_ldap, (4) mod_proxy_ftp, and (5) mod_status modules.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-4558",
+  "CVE description": "multiple cross-site scripting (xss) vulnerabilities in the balancer_handler function in the manager interface in mod_proxy_balancer.c in the mod_proxy_balancer module in the apache http server 2.2.x before 2.2.24-dev and 2.4.x before 2.4.4 allow remote attackers to inject arbitrary web script or html via a crafted string.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-2687",
+  "CVE description": "multiple cross-site scripting (xss) vulnerabilities in the make_variant_list function in mod_negotiation.c in the mod_negotiation module in the apache http server 2.4.x before 2.4.3, when the multiviews option is enabled, allow remote attackers to inject arbitrary web script or html via a crafted filename that is not properly handled during construction of a variant list.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2013-1862",
+  "CVE description": "mod_rewrite.c in the mod_rewrite module in the apache http server 2.2.x before 2.2.25 writes data to a log file without sanitizing non-printable characters, which might allow remote attackers to execute arbitrary commands via an http request containing an escape sequence for a terminal emulator.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2013-1896",
+  "CVE description": "mod_dav.c in the apache http server before 2.2.25 does not properly determine whether dav is enabled for a uri, which allows remote attackers to cause a denial of service (segmentation fault) via a merge request in which the uri is configured for handling by the mod_dav_svn module, but a certain href attribute in xml data refers to a non-dav uri.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2012-0031",
+  "CVE description": "scoreboard.c in the apache http server 2.2.21 and earlier might allow local users to cause a denial of service (daemon crash during shutdown) or possibly have unspecified other impact by modifying a certain type field within a scoreboard shared memory segment, leading to an invalid call to the free function.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2012-0883",
+  "CVE description": "envvars (aka envvars-std) in the apache http server before 2.4.2 places a zero-length directory name in the ld_library_path, which allows local users to gain privileges via a trojan horse dso in the current working directory during execution of apachectl.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2015-0204",
+  "CVE description": "the ssl3_get_key_exchange function in s3_clnt.c in openssl before 0.9.8zd, 1.0.0 before 1.0.0p, and 1.0.1 before 1.0.1k allows remote ssl servers to conduct rsa-to-export_rsa downgrade attacks and facilitate brute-force decryption by offering a weak ephemeral rsa key in a noncompliant role, related to the \"freak\" issue.  note: the scope of this cve is only client code based on openssl, not export_rsa issues associated with servers or other tls implementations.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2011-3368",
+  "CVE description": "the mod_proxy module in the apache http server 1.3.x through 1.3.42, 2.0.x through 2.0.64, and 2.2.x through 2.2.21 does not properly interact with use of (1) rewriterule and (2) proxypassmatch pattern matches for configuration of a reverse proxy, which allows remote attackers to send requests to intranet servers via a malformed uri containing an initial @ (at sign) character.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-4317",
+  "CVE description": "the mod_proxy module in the apache http server 1.3.x through 1.3.42, 2.0.x through 2.0.64, and 2.2.x through 2.2.21, when the revision 1179239 patch is in place, does not properly interact with use of (1) rewriterule and (2) proxypassmatch pattern matches for configuration of a reverse proxy, which allows remote attackers to send requests to intranet servers via a malformed uri containing an @ (at sign) character and a : (colon) character in invalid positions.  note: this vulnerability exists because of an incomplete fix for cve-2011-3368.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-3348",
+  "CVE description": "the mod_proxy_ajp module in the apache http server before 2.2.21, when used with mod_proxy_balancer in certain configurations, allows remote attackers to cause a denial of service (temporary \"error state\" in the backend server) via a malformed http request.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2012-0053",
+  "CVE description": "protocol.c in the apache http server 2.2.x through 2.2.21 does not properly restrict header information during construction of bad request (aka 400) error documents, which allows remote attackers to obtain the values of httponly cookies via vectors involving a (1) long or (2) malformed header in conjunction with crafted web script.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2011-0419",
+  "CVE description": "stack consumption vulnerability in the fnmatch implementation in apr_fnmatch.c in the apache portable runtime (apr) library before 1.4.3 and the apache http server before 2.2.18, and in fnmatch.c in libc in netbsd 5.1, openbsd 4.8, freebsd, apple mac os x 10.6, oracle solaris 10, and android, allows context-dependent attackers to cause a denial of service (cpu and memory consumption) via *? sequences in the first argument, as demonstrated by attacks against mod_autoindex in httpd.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-3192",
+  "CVE description": "the byterange filter in the apache http server 1.3.x, 2.0.x through 2.0.64, and 2.2.x through 2.2.19 allows remote attackers to cause a denial of service (memory and cpu consumption) via a range header that expresses multiple overlapping ranges, as exploited in the wild in august 2011, a different vulnerability than cve-2007-0086.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-3607",
+  "CVE description": "integer overflow in the ap_pregsub function in server\/util.c in the apache http server 2.0.x through 2.0.64 and 2.2.x through 2.2.21, when the mod_setenvif module is enabled, allows local users to gain privileges via a .htaccess file with a crafted setenvif directive, in conjunction with a crafted http request header, leading to a heap-based buffer overflow.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2011-4415",
+  "CVE description": "the ap_pregsub function in server\/util.c in the apache http server 2.0.x through 2.0.64 and 2.2.x through 2.2.21, when the mod_setenvif module is enabled, does not restrict the size of values of environment variables, which allows local users to cause a denial of service (memory consumption or null pointer dereference) via a .htaccess file with a crafted setenvif directive, in conjunction with a crafted http request header, related to (1) the \"len +=\" statement and (2) the apr_pcalloc function call, a different vulnerability than cve-2011-3607.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-3639",
+  "CVE description": "the mod_proxy module in the apache http server 2.0.x through 2.0.64 and 2.2.x before 2.2.18, when the revision 1179239 patch is in place, does not properly interact with use of (1) rewriterule and (2) proxypassmatch pattern matches for configuration of a reverse proxy, which allows remote attackers to send requests to intranet servers by using the http\/0.9 protocol with a malformed uri containing an initial @ (at sign) character.  note: this vulnerability exists because of an incomplete fix for cve-2011-3368.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-10088",
+  "CVE description": "buffer overflow in xiongmai uc-httpd 1.0.0 has unspecified impact and attack vectors, a different vulnerability than cve-2017-16725.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2010-1452",
+  "CVE description": "the (1) mod_cache and (2) mod_dav modules in the apache http server 2.2.x before 2.2.16 allow remote attackers to cause a denial of service (process crash) via a request that lacks a path.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2015-8994",
+  "CVE description": "an issue was discovered in php 5.x and 7.x, when the configuration uses apache2handler\/mod_php or php-fpm with opcache enabled. with 5.x after 5.6.28 or 7.x after 7.0.13, the issue is resolved in a non-default configuration with the opcache.validate_permission=1 setting. the vulnerability details are as follows. in php sapis where php interpreters share a common parent process, zend opcache creates a shared memory object owned by the common parent during initialization. child php processes inherit the shm descriptor, using it to cache and retrieve compiled script bytecode (\"opcode\" in php jargon). cache keys vary depending on configuration, but filename is a central key component, and compiled opcode can generally be run if a script's filename is known or can be guessed. many common shared-hosting configurations change euid in child processes to enforce privilege separation among hosted users (for example using mod_ruid2 for the apache http server, or php-fpm user settings). in these scenarios, the default zend opcache behavior defeats script file permissions by sharing a single shm cache among all child php processes. php scripts often contain sensitive information: think of cms configurations where reading or running another user's script usually means gaining privileges to the cms database.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2016-7478",
+  "CVE description": "zend\/zend_exceptions.c in php, possibly 5.x before 5.6.28 and 7.x before 7.0.13, allows remote attackers to cause a denial of service (infinite loop) via a crafted exception object in serialized data, a related issue to cve-2015-8876.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2012-4557",
+  "CVE description": "the mod_proxy_ajp module in the apache http server 2.2.12 through 2.2.21 places a worker node into an error state upon detection of a long request-processing time, which allows remote attackers to cause a denial of service (worker consumption) via an expensive request.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-2068",
+  "CVE description": "mod_proxy_http.c in mod_proxy_http in the apache http server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on windows, netware, and os\/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal http request.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2019-0215",
+  "CVE description": "in apache http server 2.4 releases 2.4.37 and 2.4.38, a bug in mod_ssl when using per-location client certificate verification with tlsv1.3 allowed a client to bypass configured access control restrictions.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2014-9427",
+  "CVE description": "sapi\/cgi\/cgi_main.c in the cgi component in php through 5.4.36, 5.5.x through 5.5.20, and 5.6.x through 5.6.4, when mmap is used to read a .php file, does not properly consider the mapping's length during processing of an invalid file that begins with a # character and lacks a newline character, which causes an out-of-bounds read and might (1) allow remote attackers to obtain sensitive information from php-cgi process memory by leveraging the ability to upload a .php file or (2) trigger unexpected code execution if a valid php script is present in memory locations adjacent to the mapping.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-5459",
+  "CVE description": "the pear_rest class in rest.php in pear in php through 5.6.0 allows local users to write to arbitrary files via a symlink attack on a (1) rest.cachefile or (2) rest.cacheid file in \/tmp\/pear\/cache\/, related to the retrievecachefirst and uselocalcache functions.",
+  "NIST subcategory ID": "ID.AM-5",
+  "NIST subcategory description": "resources (e.g., hardware, devices, data, time, personnel, and software) are prioritized based on their classification, criticality, and business value"
+ },
+ {
+  "CVE ID": "cve-2019-0190",
+  "CVE description": "a bug exists in the way mod_ssl handled client renegotiations. a remote attacker could send a carefully crafted request that would cause mod_ssl to enter a loop leading to a denial of service. this bug can be only triggered with apache http server version 2.4.37 when using openssl version 1.1.1 or later, due to an interaction in changes to handling of renegotiation attempts.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2014-0237",
+  "CVE description": "the cdf_unpack_summary_info function in cdf.c in the fileinfo component in php before 5.4.29 and 5.5.x before 5.5.13 allows remote attackers to cause a denial of service (performance degradation) by triggering many file_printf calls.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-0238",
+  "CVE description": "the cdf_read_property_info function in cdf.c in the fileinfo component in php before 5.4.29 and 5.5.x before 5.5.13 allows remote attackers to cause a denial of service (infinite loop or out-of-bounds memory access) via a vector that (1) has zero length or (2) is too long.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2016-8740",
+  "CVE description": "the mod_http2 module in the apache http server 2.4.17 through 2.4.23, when the protocols configuration includes h2 or h2c, does not restrict request-header length, which allows remote attackers to cause a denial of service (memory consumption) via crafted continuation frames in an http\/2 request.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-1301",
+  "CVE description": "a specially crafted request could have crashed the apache http server prior to version 2.4.30, due to an out of bound access after a size limit is reached by reading the http header. this vulnerability is considered very hard if not impossible to trigger in non-debug mode (both log and build level), so it is classified as low risk for common server usage.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-1302",
+  "CVE description": "when an http\/2 stream was destroyed after being handled, the apache http server prior to version 2.4.30 could have written a null pointer potentially to an already freed memory. the memory pools maintained by the server make this vulnerability hard to trigger in usual configurations, the reporter and the team could not reproduce it outside debug builds, so it is classified as low risk.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-1303",
+  "CVE description": "a specially crafted http request header could have crashed the apache http server prior to version 2.4.30 due to an out of bound read while preparing data to be cached in shared memory. it could be used as a denial of service attack against users of mod_cache_socache. the vulnerability is considered as low risk since mod_cache_socache is not widely used, mod_cache_disk is not concerned by this vulnerability.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2016-10708",
+  "CVE description": "sshd in openssh before 7.4 allows remote attackers to cause a denial of service (null pointer dereference and daemon crash) via an out-of-sequence newkeys message, as demonstrated by honggfuzz, related to kex.c and packet.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2007-6750",
+  "CVE description": "the apache http server 1.x and 2.x allows remote attackers to cause a denial of service (daemon outage) via partial http requests, as demonstrated by slowloris, related to the lack of the mod_reqtimeout module in versions before 2.2.15.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2015-1635",
+  "CVE description": "http.sys in microsoft windows 7 sp1, windows server 2008 r2 sp1, windows 8, windows 8.1, and windows server 2012 gold and r2 allows remote attackers to execute arbitrary code via crafted http requests, aka \"http.sys remote code execution vulnerability.\"",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-19052",
+  "CVE description": "an issue was discovered in mod_alias_physical_handler in mod_alias.c in lighttpd before 1.4.50. there is potential ..\/ path traversal of a single directory above an alias target, with a specific mod_alias configuration where the matched alias lacks a trailing '\/' character, but the alias target filesystem path does have a trailing '\/' character.",
+  "NIST subcategory ID": "DE.CM-7",
+  "NIST subcategory description": "monitoring for unauthorized personnel, connections, devices, and software is performed"
+ },
+ {
+  "CVE ID": "cve-2016-1546",
+  "CVE description": "the apache http server 2.4.17 and 2.4.18, when mod_http2 is enabled, does not limit the number of simultaneous stream workers for a single http\/2 connection, which allows remote attackers to cause a denial of service (stream-processing outage) via modified flow-control windows.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2016-4979",
+  "CVE description": "the apache http server 2.4.18 through 2.4.20, when mod_http2 and mod_ssl are enabled, does not properly recognize the \"sslverifyclient require\" directive for http\/2 request authorization, which allows remote attackers to bypass intended access restrictions by leveraging the ability to send multiple requests over a single connection and aborting a renegotiation.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2010-0425",
+  "CVE description": "modules\/arch\/win32\/mod_isapi.c in mod_isapi in the apache http server 2.0.37 through 2.0.63, 2.2.0 through 2.2.14, and 2.3.x before 2.3.7, when running on windows, does not ensure that request processing is complete before calling isapi_unload for an isapi .dll module, which allows remote attackers to execute arbitrary code via unspecified vectors related to a crafted request, a reset packet, and \"orphaned callback pointers.\"",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2012-1171",
+  "CVE description": "the libxml rshutdown function in php 5.x allows remote attackers to bypass the open_basedir protection mechanism and read arbitrary files via vectors involving a stream_close method call during use of a custom stream wrapper.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2014-2497",
+  "CVE description": "the gdimagecreatefromxpm function in gdxpm.c in libgd, as used in php 5.4.26 and earlier, allows remote attackers to cause a denial of service (null pointer dereference and application crash) via a crafted color table in an xpm file.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2013-2110",
+  "CVE description": "heap-based buffer overflow in the php_quot_print_encode function in ext\/standard\/quot_print.c in php before 5.3.26 and 5.4.x before 5.4.16 allows remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted argument to the quoted_printable_encode function.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2013-4635",
+  "CVE description": "integer overflow in the sdntojewish function in jewish.c in the calendar component in php before 5.3.26 and 5.4.x before 5.4.16 allows context-dependent attackers to cause a denial of service (application hang) via a large argument to the jdtojewish function.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2009-2699",
+  "CVE description": "the solaris pollset feature in the event port backend in poll\/unix\/port.c in the apache portable runtime (apr) library before 1.3.9, as used in the apache http server before 2.2.14 and other products, does not properly handle errors, which allows remote attackers to cause a denial of service (daemon hang) via unspecified http requests, related to the prefork and event mpms.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2011-4718",
+  "CVE description": "session fixation vulnerability in the sessions subsystem in php before 5.5.2 allows remote attackers to hijack web sessions by specifying a session id.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2013-4248",
+  "CVE description": "the openssl_x509_parse function in openssl.c in the openssl module in php before 5.4.18 and 5.5.x before 5.5.2 does not properly handle a '\\0' character in a domain name in the subject alternative name field of an x.509 certificate, which allows man-in-the-middle attackers to spoof arbitrary ssl servers via a crafted certificate issued by a legitimate certification authority, a related issue to cve-2009-2408.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-1692",
+  "CVE description": "the hash_buffer function in schnorr.c in openssh through 6.4, when makefile.inc is modified to enable the j-pake protocol, does not initialize certain data structures, which might allow remote attackers to cause a denial of service (memory corruption) or have unspecified other impact via vectors that trigger an error condition.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-4721",
+  "CVE description": "the phpinfo implementation in ext\/standard\/info.c in php before 5.4.30 and 5.5.x before 5.5.14 does not ensure use of the string data type for the php_auth_pw, php_auth_type, php_auth_user, and php_self variables, which might allow context-dependent attackers to obtain sensitive information from process memory by using the integer data type with crafted values, related to a \"type confusion\" vulnerability, as demonstrated by reading a private ssl key in an apache http server web-hosting environment with mod_ssl and a php 5.3.x mod_php.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2013-1635",
+  "CVE description": "ext\/soap\/soap.c in php before 5.3.22 and 5.4.x before 5.4.13 does not validate the relationship between the soap.wsdl_cache_dir directive and the open_basedir directive, which allows remote attackers to bypass intended access restrictions by triggering the creation of cached soap wsdl files in an arbitrary directory.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2013-1643",
+  "CVE description": "the soap parser in php before 5.3.23 and 5.4.x before 5.4.13 allows remote attackers to read arbitrary files via a soap wsdl file containing an xml external entity declaration in conjunction with an entity reference, related to an xml external entity (xxe) issue in the soap_xmlparsefile and soap_xmlparsememory functions.  note: this vulnerability exists because of an incorrect fix for cve-2013-1824.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2010-5107",
+  "CVE description": "the default configuration of openssh through 6.1 enforces a fixed time limit between establishing a tcp connection and completing a login, which makes it easier for remote attackers to cause a denial of service (connection-slot exhaustion) by periodically making many new tcp connections.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2019-0217",
+  "CVE description": "in apache http server 2.4 release 2.4.38 and prior, a race condition in mod_auth_digest when running in a threaded server could allow a user with valid credentials to authenticate using another username, bypassing configured access control restrictions.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2018-19518",
+  "CVE description": "university of washington imap toolkit 2007f on unix, as used in imap_open() in php and other products, launches an rsh command (by means of the imap_rimap function in c-client\/imap4r1.c and the tcp_aopen function in osdep\/unix\/tcp_unix.c) without preventing argument injection, which might allow remote attackers to execute arbitrary os commands if the imap server name is untrusted input (e.g., entered by a user of a web application) and if rsh has been replaced by a program with different argument semantics. for example, if rsh is a link to ssh (as seen on debian and ubuntu systems), then the attack can use an imap server name containing a \"-oproxycommand\" argument.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2021-31206",
+  "CVE description": "microsoft exchange server remote code execution vulnerability this cve id is unique from cve-2021-31196, cve-2021-34473.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2012-2688",
+  "CVE description": "unspecified vulnerability in the _php_stream_scandir function in the stream implementation in php before 5.3.15 and 5.4.x before 5.4.5 has unknown impact and remote attack vectors, related to an \"overflow.\"",
+  "NIST subcategory ID": "RS.AN-2",
+  "NIST subcategory description": "the impact of the incident is understood"
+ },
+ {
+  "CVE ID": "cve-2019-1543",
+  "CVE description": "chacha20-poly1305 is an aead cipher, and requires a unique nonce input for every encryption operation. rfc 7539 specifies that the nonce value (iv) should be 96 bits (12 bytes). openssl allows a variable nonce length and front pads the nonce with 0 bytes if it is less than 12 bytes. however it also incorrectly allows a nonce to be set of up to 16 bytes. in this case only the last 12 bytes are significant and any additional leading bytes are ignored. it is a requirement of using this cipher that nonce values are unique. messages encrypted using a reused nonce value are susceptible to serious confidentiality and integrity attacks. if an application changes the default nonce length to be longer than 12 bytes and then makes a change to the leading bytes of the nonce expecting the new value to be a new unique nonce then such an application could inadvertently encrypt messages with a reused nonce. additionally the ignored bytes in a long nonce are not covered by the integrity guarantee of this cipher. any application that relies on the integrity of these ignored leading bytes of a long nonce may be further affected. any openssl internal use of this cipher, including in ssl\/tls, is safe because no such use sets such a long nonce value. however user applications that use this cipher directly and set a non-default nonce length to be longer than 12 bytes may be vulnerable. openssl versions 1.1.1 and 1.1.0 are affected by this issue. due to the limited scope of affected deployments this has been assessed as low severity and therefore we are not creating new releases at this time. fixed in openssl 1.1.1c (affected 1.1.1-1.1.1b). fixed in openssl 1.1.0k (affected 1.1.0-1.1.0j).",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2009-1890",
+  "CVE description": "the stream_reqbody_cl function in mod_proxy_http.c in the mod_proxy module in the apache http server before 2.3.3, when a reverse proxy is configured, does not properly handle an amount of streamed data that exceeds the content-length value, which allows remote attackers to cause a denial of service (cpu consumption) via crafted requests.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2010-4755",
+  "CVE description": "the (1) remote_glob function in sftp-glob.c and the (2) process_put function in sftp.c in openssh 5.8 and earlier, as used in freebsd 7.3 and 8.1, netbsd 5.0.2, openbsd 4.7, and other products, allow remote authenticated users to cause a denial of service (cpu and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in ssh_fxp_stat requests to an sftp daemon, a different vulnerability than cve-2010-2632.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-4327",
+  "CVE description": "ssh-keysign.c in ssh-keysign in openssh before 5.8p2 on certain platforms executes ssh-rand-helper with unintended open file descriptors, which allows local users to obtain sensitive key information via the ptrace system call.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2011-5000",
+  "CVE description": "the ssh_gssapi_parse_ename function in gss-serv.c in openssh 5.8 and earlier, when gssapi-with-mic authentication is enabled, allows remote authenticated users to cause a denial of service (memory consumption) via a large value in a certain length field.  note: there may be limited scenarios in which this issue is relevant.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2015-4000",
+  "CVE description": "the tls protocol 1.2 and earlier, when a dhe_export ciphersuite is enabled on a server but not on a client, does not properly convey a dhe_export choice, which allows man-in-the-middle attackers to conduct cipher-downgrade attacks by rewriting a clienthello with dhe replaced by dhe_export and then rewriting a serverhello with dhe_export replaced by dhe, aka the \"logjam\" issue.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2012-2143",
+  "CVE description": "the crypt_des (aka des-based crypt) function in freebsd before 9.0-release-p2, as used in php, postgresql, and other products, does not process the complete cleartext password if this password contains a 0x80 character, which makes it easier for context-dependent attackers to obtain access via an authentication attempt with an initial substring of the intended password, as demonstrated by a unicode password.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2012-2376",
+  "CVE description": "buffer overflow in the com_print_typeinfo function in php 5.4.3 and earlier on windows allows remote attackers to execute arbitrary code via crafted arguments that trigger incorrect handling of com object variant types, as exploited in the wild in may 2012.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2009-1891",
+  "CVE description": "the mod_deflate module in apache httpd 2.2.11 and earlier compresses large files until completion even after the associated network connection is closed, which allows remote attackers to cause a denial of service (cpu consumption).",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2012-2311",
+  "CVE description": "sapi\/cgi\/cgi_main.c in php before 5.3.13 and 5.4.x before 5.4.3, when configured as a cgi script (aka php-cgi), does not properly handle query strings that contain a %3d sequence but no = (equals sign) character, which allows remote attackers to execute arbitrary code by placing command-line options in the query string, related to lack of skipping a certain php_getopt for the 'd' case.  note: this vulnerability exists because of an incomplete fix for cve-2012-1823.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-2336",
+  "CVE description": "sapi\/cgi\/cgi_main.c in php before 5.3.13 and 5.4.x before 5.4.3, when configured as a cgi script (aka php-cgi), does not properly handle query strings that lack an = (equals sign) character, which allows remote attackers to cause a denial of service (resource consumption) by placing command-line options in the query string, related to lack of skipping a certain php_getopt for the 't' case.  note: this vulnerability exists because of an incomplete fix for cve-2012-1823.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-2386",
+  "CVE description": "integer overflow in the phar_parse_tarfile function in tar.c in the phar extension in php before 5.3.14 and 5.4.x before 5.4.4 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted tar file that triggers a heap-based buffer overflow.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2012-3365",
+  "CVE description": "the sqlite functionality in php before 5.3.15 allows remote attackers to bypass the open_basedir protection mechanism via unspecified vectors.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2010-0408",
+  "CVE description": "the ap_proxy_ajp_request function in mod_proxy_ajp.c in mod_proxy_ajp in the apache http server 2.2.x before 2.2.15 does not properly handle certain situations in which a client sends no request body, which allows remote attackers to cause a denial of service (backend server outage) via a crafted request, related to use of a 500 error code instead of the appropriate 400 error code.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2010-0434",
+  "CVE description": "the ap_read_request function in server\/protocol.c in the apache http server 2.2.x before 2.2.15, when a multithreaded mpm is used, does not properly handle headers in subrequests in certain circumstances involving a parent request that has a body, which might allow remote attackers to obtain sensitive information via a crafted request that triggers access to memory locations associated with an earlier request.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2012-1823",
+  "CVE description": "sapi\/cgi\/cgi_main.c in php before 5.3.12 and 5.4.x before 5.4.2, when configured as a cgi script (aka php-cgi), does not properly handle query strings that lack an = (equals sign) character, which allows remote attackers to execute arbitrary code by placing command-line options in the query string, related to lack of skipping a certain php_getopt for the 'd' case.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-1172",
+  "CVE description": "the file-upload implementation in rfc1867.c in php before 5.4.0 does not properly handle invalid [ (open square bracket) characters in name values, which makes it easier for remote attackers to cause a denial of service (malformed $_files indexes) or conduct directory traversal attacks during multi-file uploads by leveraging a script that lacks its own filename restrictions.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-3566",
+  "CVE description": "the ssl protocol 3.0, as used in openssl through 1.0.1i and other products, uses nondeterministic cbc padding, which makes it easier for man-in-the-middle attackers to obtain cleartext data via a padding-oracle attack, aka the \"poodle\" issue.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2010-4478",
+  "CVE description": "openssh 5.6 and earlier, when j-pake is enabled, does not properly validate the public parameters in the j-pake protocol, which allows remote attackers to bypass the need for knowledge of the shared secret, and successfully authenticate, by sending crafted values in each round of the protocol, a related issue to cve-2010-4252.",
+  "NIST subcategory ID": "PR.AC-7",
+  "NIST subcategory description": "users, devices, and other assets are authenticated (e.g., single-factor, multi-factor) commensurate with the risk of the transaction (e.g., individuals’ security and privacy risks and other organizational risks)"
+ },
+ {
+  "CVE ID": "cve-2012-0814",
+  "CVE description": "the auth_parse_options function in auth-options.c in sshd in openssh before 5.7 provides debug messages containing authorized_keys command options, which allows remote authenticated users to obtain potentially sensitive information by reading these messages, as demonstrated by the shared user account required by gitolite.  note: this can cross privilege boundaries because a user account may intentionally have no shell or filesystem access, and therefore may have no supported way to read an authorized_keys file in its own home directory.",
+  "NIST subcategory ID": "PR.AC-7",
+  "NIST subcategory description": "users, devices, and other assets are authenticated (e.g., single-factor, multi-factor) commensurate with the risk of the transaction (e.g., individuals’ security and privacy risks and other organizational risks)"
+ },
+ {
+  "CVE ID": "cve-2012-0831",
+  "CVE description": "php before 5.3.10 does not properly perform a temporary change to the magic_quotes_gpc directive during the importing of environment variables, which makes it easier for remote attackers to conduct sql injection attacks via a crafted request, related to main\/php_variables.c, sapi\/cgi\/cgi_main.c, and sapi\/fpm\/fpm\/fpm_main.c.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-3505",
+  "CVE description": "double free vulnerability in d1_both.c in the dtls implementation in openssl 0.9.8 before 0.9.8zb, 1.0.0 before 1.0.0n, and 1.0.1 before 1.0.1i allows remote attackers to cause a denial of service (application crash) via crafted dtls packets that trigger an error condition.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2014-3506",
+  "CVE description": "d1_both.c in the dtls implementation in openssl 0.9.8 before 0.9.8zb, 1.0.0 before 1.0.0n, and 1.0.1 before 1.0.1i allows remote attackers to cause a denial of service (memory consumption) via crafted dtls handshake messages that trigger memory allocations corresponding to large length values.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-3507",
+  "CVE description": "memory leak in d1_both.c in the dtls implementation in openssl 0.9.8 before 0.9.8zb, 1.0.0 before 1.0.0n, and 1.0.1 before 1.0.1i allows remote attackers to cause a denial of service (memory consumption) via zero-length dtls fragments that trigger improper handling of the return value of a certain insert function.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-3508",
+  "CVE description": "the obj_obj2txt function in crypto\/objects\/obj_dat.c in openssl 0.9.8 before 0.9.8zb, 1.0.0 before 1.0.0n, and 1.0.1 before 1.0.1i, when pretty printing is used, does not ensure the presence of '\\0' characters, which allows context-dependent attackers to obtain sensitive information from process stack memory by reading output from x509_name_oneline, x509_name_print_ex, and unspecified other functions.",
+  "NIST subcategory ID": "PR.DS-5",
+  "NIST subcategory description": "protections against data leaks are implemented"
+ },
+ {
+  "CVE ID": "cve-2014-3510",
+  "CVE description": "the ssl3_send_client_key_exchange function in s3_clnt.c in openssl 0.9.8 before 0.9.8zb, 1.0.0 before 1.0.0n, and 1.0.1 before 1.0.1i allows remote dtls servers to cause a denial of service (null pointer dereference and client application crash) via a crafted handshake message in conjunction with a (1) anonymous dh or (2) anonymous ecdh ciphersuite.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2018-0735",
+  "CVE description": "the openssl ecdsa signature algorithm has been shown to be vulnerable to a timing side channel attack. an attacker could use variations in the signing algorithm to recover the private key. fixed in openssl 1.1.0j (affected 1.1.0-1.1.0i). fixed in openssl 1.1.1a (affected 1.1.1).",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2011-4885",
+  "CVE description": "php before 5.3.9 computes hash values for form parameters without restricting the ability to trigger hash collisions predictably, which allows remote attackers to cause a denial of service (cpu consumption) by sending many crafted parameters.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-0057",
+  "CVE description": "php before 5.3.9 has improper libxslt security settings, which allows remote attackers to create arbitrary files via a crafted xslt stylesheet that uses the libxslt output extension.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2012-0788",
+  "CVE description": "the pdorow implementation in php before 5.3.9 does not properly interact with the session feature, which allows remote attackers to cause a denial of service (application crash) via a crafted application that uses a pdo driver for a fetch and then calls the session_start function, as demonstrated by a crash of the apache http server.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2012-0789",
+  "CVE description": "memory leak in the timezone functionality in php before 5.3.9 allows remote attackers to cause a denial of service (memory consumption) by triggering many strtotime function calls, which are not properly handled by the php_date_parse_tzfile cache.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-5298",
+  "CVE description": "race condition in the ssl3_read_bytes function in s3_pkt.c in openssl through 1.0.1g, when ssl_mode_release_buffers is enabled, allows remote attackers to inject data across sessions or cause a denial of service (use-after-free and parsing error) via an ssl connection in a multithreaded environment.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-0421",
+  "CVE description": "the _zip_name_locate function in zip_name_locate.c in the zip extension in php before 5.3.6 does not properly handle a ziparchive::fl_unchanged argument, which might allow context-dependent attackers to cause a denial of service (null pointer dereference) via an empty zip archive that is processed with a (1) locatename or (2) statname operation.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2011-0708",
+  "CVE description": "exif.c in the exif extension in php before 5.3.6 on 64-bit platforms performs an incorrect cast, which allows remote attackers to cause a denial of service (application crash) via an image with a crafted image file directory (ifd) that triggers a buffer over-read.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-1092",
+  "CVE description": "integer overflow in ext\/shmop\/shmop.c in php before 5.3.6 allows context-dependent attackers to cause a denial of service (crash) and possibly read sensitive memory via a large third argument to the shmop_read function.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2011-1464",
+  "CVE description": "buffer overflow in the strval function in php before 5.3.6, when the precision configuration option has a large value, might allow context-dependent attackers to cause a denial of service (application crash) via a small numerical value in the argument.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2011-1466",
+  "CVE description": "integer overflow in the sdntojulian function in the calendar extension in php before 5.3.6 allows context-dependent attackers to cause a denial of service (application crash) via a large integer in the first argument to the cal_from_jd function.",
+  "NIST subcategory ID": "PR.PT-3",
+  "NIST subcategory description": "the principle of least functionality is incorporated by configuring systems to provide only essential capabilities"
+ },
+ {
+  "CVE ID": "cve-2011-1467",
+  "CVE description": "unspecified vulnerability in the numberformatter::setsymbol (aka numfmt_set_symbol) function in the intl extension in php before 5.3.6 allows context-dependent attackers to cause a denial of service (application crash) via an invalid argument, a related issue to cve-2010-4409.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2011-1468",
+  "CVE description": "multiple memory leaks in the openssl extension in php before 5.3.6 might allow remote attackers to cause a denial of service (memory consumption) via (1) plaintext data to the openssl_encrypt function or (2) ciphertext data to the openssl_decrypt function.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-1469",
+  "CVE description": "unspecified vulnerability in the streams component in php before 5.3.6 allows context-dependent attackers to cause a denial of service (application crash) by accessing an ftp:\/\/ url during use of an http proxy with the ftp wrapper.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2011-1470",
+  "CVE description": "the zip extension in php before 5.3.6 allows context-dependent attackers to cause a denial of service (application crash) via a ziparchive stream that is not properly handled by the stream_get_contents function.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-0195",
+  "CVE description": "the dtls1_reassemble_fragment function in d1_both.c in openssl before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h does not properly validate fragment lengths in dtls clienthello messages, which allows remote attackers to execute arbitrary code or cause a denial of service (buffer overflow and application crash) via a long non-initial fragment.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2014-0221",
+  "CVE description": "the dtls1_get_message_fragment function in d1_both.c in openssl before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h allows remote attackers to cause a denial of service (recursion and client crash) via a dtls hello message in an invalid dtls handshake.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-0224",
+  "CVE description": "openssl before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h does not properly restrict processing of changecipherspec messages, which allows man-in-the-middle attackers to trigger use of a zero-length master key in certain openssl-to-openssl communications, and consequently hijack sessions or obtain sensitive information, via a crafted tls handshake, aka the \"ccs injection\" vulnerability.",
+  "NIST subcategory ID": "PR.PT-5",
+  "NIST subcategory description": "mechanisms (e.g., failsafe, load balancing, hot swap) are implemented to achieve resilience requirements in normal and adverse situations"
+ },
+ {
+  "CVE ID": "cve-2014-3470",
+  "CVE description": "the ssl3_send_client_key_exchange function in s3_clnt.c in openssl before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h, when an anonymous ecdh cipher suite is used, allows remote attackers to cause a denial of service (null pointer dereference and client crash) by triggering a null certificate value.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2011-2483",
+  "CVE description": "crypt_blowfish before 1.1, as used in php before 5.3.7 on certain platforms, postgresql before 8.4.9, and other products, does not properly handle 8-bit characters, which makes it easier for context-dependent attackers to determine a cleartext password by leveraging knowledge of a password hash.",
+  "NIST subcategory ID": "PR.DS-2",
+  "NIST subcategory description": "data-in-transit is protected"
+ },
+ {
+  "CVE ID": "cve-2011-3182",
+  "CVE description": "php before 5.3.7 does not properly check the return values of the malloc, calloc, and realloc library functions, which allows context-dependent attackers to cause a denial of service (null pointer dereference and application crash) or trigger a buffer overflow by leveraging the ability to provide an arbitrary value for a function argument, related to (1) ext\/curl\/interface.c, (2) ext\/date\/lib\/parse_date.c, (3) ext\/date\/lib\/parse_iso_intervals.c, (4) ext\/date\/lib\/parse_tz.c, (5) ext\/date\/lib\/timelib.c, (6) ext\/pdo_odbc\/pdo_odbc.c, (7) ext\/reflection\/php_reflection.c, (8) ext\/soap\/php_sdl.c, (9) ext\/xmlrpc\/libxmlrpc\/base64.c, (10) tsrm\/tsrm_win32.c, and (11) the strtotime function.",
+  "NIST subcategory ID": "PR.DS-4",
+  "NIST subcategory description": "adequate capacity to ensure availability is maintained"
+ },
+ {
+  "CVE ID": "cve-2011-3267",
+  "CVE description": "php before 5.3.7 does not properly implement the error_log function, which allows context-dependent attackers to cause a denial of service (application crash) via unspecified vectors.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-3268",
+  "CVE description": "buffer overflow in the crypt function in php before 5.3.7 allows context-dependent attackers to have an unspecified impact via a long salt argument, a different vulnerability than cve-2011-2483.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-1153",
+  "CVE description": "multiple format string vulnerabilities in phar_object.c in the phar extension in php 5.3.5 and earlier allow context-dependent attackers to obtain sensitive information from process memory, cause a denial of service (memory corruption), or possibly execute arbitrary code via format string specifiers in an argument to a class method, leading to an incorrect zend_throw_exception_ex call.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2006-7243",
+  "CVE description": "php before 5.3.4 accepts the \\0 character in a pathname, which might allow context-dependent attackers to bypass intended access restrictions by placing a safe file extension after this character, as demonstrated by .php\\0.jpg at the end of the argument to the file_exists function.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-3870",
+  "CVE description": "the utf8_decode function in php before 5.3.4 does not properly handle non-shortest form utf-8 encoding and ill-formed subsequences in utf-8 data, which makes it easier for remote attackers to bypass cross-site scripting (xss) and sql injection protection mechanisms via a crafted string.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-4699",
+  "CVE description": "the iconv_mime_decode_headers function in the iconv extension in php before 5.3.4 does not properly handle encodings that are unrecognized by the iconv and mbstring (aka multibyte string) implementations, which allows remote attackers to trigger an incomplete output array, and possibly bypass spam detection or have unspecified other impact, via a crafted subject header in an e-mail message, as demonstrated by the ks_c_5601-1987 character set.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2011-0755",
+  "CVE description": "integer overflow in the mt_rand function in php before 5.3.4 might make it easier for context-dependent attackers to predict the return values by leveraging a script's use of a large max parameter, as demonstrated by a value that exceeds mt_getrandmax.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2016-0777",
+  "CVE description": "the resend_bytes function in roaming_common.c in the client in openssh 5.x, 6.x, and 7.x before 7.1p2 allows remote servers to obtain sensitive information from process memory by requesting transmission of an entire buffer, as demonstrated by reading a private key.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2009-1195",
+  "CVE description": "the apache http server 2.2.11 and earlier 2.2 versions does not properly handle options=includesnoexec in the allowoverride directive, which allows local users to gain privileges by configuring (1) options includes, (2) options +includes, or (3) options +includesnoexec in a .htaccess file, and then inserting an exec element in a .shtml file.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2014-2323",
+  "CVE description": "sql injection vulnerability in mod_mysql_vhost.c in lighttpd before 1.4.35 allows remote attackers to execute arbitrary sql commands via the host name, related to request_check_hostname.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2014-2324",
+  "CVE description": "multiple directory traversal vulnerabilities in (1) mod_evhost and (2) mod_simple_vhost in lighttpd before 1.4.35 allow remote attackers to read arbitrary files via a .. (dot dot) in the host name, related to request_check_hostname.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2017-7659",
+  "CVE description": "a maliciously constructed http\/2 request could cause mod_http2 in apache http server 2.4.24, 2.4.25 to dereference a null pointer and crash the server process.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2010-4697",
+  "CVE description": "use-after-free vulnerability in the zend engine in php before 5.2.15 and 5.3.x before 5.3.4 might allow context-dependent attackers to cause a denial of service (heap memory corruption) or have unspecified other impact via vectors related to use of __set, __get, __isset, and __unset methods on objects accessed by a reference.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2013-1824",
+  "CVE description": "the soap parser in php before 5.3.22 and 5.4.x before 5.4.12 allows remote attackers to read arbitrary files via a soap wsdl file containing an xml external entity declaration in conjunction with an entity reference, related to an xml external entity (xxe) issue in the soap_xmlparsefile and soap_xmlparsememory functions.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-4508",
+  "CVE description": "lighttpd before 1.4.34, when sni is enabled, configures weak ssl ciphers, which makes it easier for remote attackers to hijack sessions by inserting packets into the client-server data stream or obtain sensitive information by sniffing the network.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-4559",
+  "CVE description": "lighttpd before 1.4.33 does not check the return value of the (1) setuid, (2) setgid, or (3) setgroups functions, which might cause lighttpd to run as root if it is restarted and allows remote attackers to gain privileges, as demonstrated by multiple calls to the clone function that cause setuid to fail when the user process limit is reached.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-4560",
+  "CVE description": "use-after-free vulnerability in lighttpd before 1.4.33 allows remote attackers to cause a denial of service (segmentation fault and crash) via unspecified vectors that trigger fammonitordirectory failures.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-4113",
+  "CVE description": "ext\/xml\/xml.c in php before 5.3.27 does not properly consider parsing depth, which allows remote attackers to cause a denial of service (heap memory corruption) or possibly have unspecified other impact via a crafted document that is processed by the xml_parse_into_struct function.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2013-5704",
+  "CVE description": "the mod_headers module in the apache http server 2.2.22 allows remote attackers to bypass \"requestheader unset\" directives by placing a header in the trailer portion of data sent with chunked transfer coding.  note: the vendor states \"this is not a security issue in httpd as such.\"",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2019-0708",
+  "CVE description": "a remote code execution vulnerability exists in remote desktop services formerly known as terminal services when an unauthenticated attacker connects to the target system using rdp and sends specially crafted requests, aka 'remote desktop services remote code execution vulnerability'.",
+  "NIST subcategory ID": "DE.CM-4",
+  "NIST subcategory description": "malicious code is detected"
+ },
+ {
+  "CVE ID": "cve-2010-4645",
+  "CVE description": "strtod.c, as used in the zend_strtod function in php 5.2 before 5.2.17 and 5.3 before 5.3.5, and other products, allows context-dependent attackers to cause a denial of service (infinite loop) via a certain floating-point value in scientific notation, which is not properly handled in x87 fpu registers, as demonstrated using 2.2250738585072011e-308.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2014-0076",
+  "CVE description": "the montgomery ladder implementation in openssl through 1.0.0l does not ensure that certain swap operations have a constant-time behavior, which makes it easier for local users to obtain ecdsa nonces via a flush+reload cache side-channel attack.",
+  "NIST subcategory ID": "PR.IP-7",
+  "NIST subcategory description": "protection processes are improved"
+ },
+ {
+  "CVE ID": "cve-2013-0166",
+  "CVE description": "openssl before 0.9.8y, 1.0.0 before 1.0.0k, and 1.0.1 before 1.0.1d does not properly perform signature verification for ocsp responses, which allows remote ocsp servers to cause a denial of service (null pointer dereference and application crash) via an invalid key.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2012-3450",
+  "CVE description": "pdo_sql_parser.re in the pdo extension in php before 5.3.14 and 5.4.x before 5.4.4 does not properly determine the end of the query string during parsing of prepared statements, which allows remote attackers to cause a denial of service (out-of-bounds read and application crash) via a crafted parameter value.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-3709",
+  "CVE description": "the ziparchive::getarchivecomment function in php 5.2.x through 5.2.14 and 5.3.x through 5.3.3 allows context-dependent attackers to cause a denial of service (null pointer dereference and application crash) via a crafted zip archive.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2010-3710",
+  "CVE description": "stack consumption vulnerability in the filter_var function in php 5.2.x through 5.2.14 and 5.3.x through 5.3.3, when filter_validate_email mode is used, allows remote attackers to cause a denial of service (memory consumption and application crash) via a long e-mail address string.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2012-2333",
+  "CVE description": "integer underflow in openssl before 0.9.8x, 1.0.0 before 1.0.0j, and 1.0.1 before 1.0.1c, when tls 1.1, tls 1.2, or dtls is used with cbc encryption, allows remote attackers to cause a denial of service (buffer over-read) or possibly have unspecified other impact via a crafted tls packet that is not properly handled during a certain explicit iv calculation.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2011-4108",
+  "CVE description": "the dtls implementation in openssl before 0.9.8s and 1.x before 1.0.0f performs a mac check only if certain padding is valid, which makes it easier for remote attackers to recover plaintext via a padding oracle attack.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2011-4576",
+  "CVE description": "the ssl 3.0 implementation in openssl before 0.9.8s and 1.x before 1.0.0f does not properly initialize data structures for block cipher padding, which might allow remote attackers to obtain sensitive information by decrypting the padding data sent by an ssl peer.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2011-4577",
+  "CVE description": "openssl before 0.9.8s and 1.x before 1.0.0f, when rfc 3779 support is enabled, allows remote attackers to cause a denial of service (assertion failure) via an x.509 certificate containing certificate-extension data associated with (1) ip address blocks or (2) autonomous system (as) identifiers.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2011-4619",
+  "CVE description": "the server gated cryptography (sgc) implementation in openssl before 0.9.8s and 1.x before 1.0.0f does not properly handle handshake restarts, which allows remote attackers to cause a denial of service (cpu consumption) via unspecified vectors.",
+  "NIST subcategory ID": "PR.AC-3",
+  "NIST subcategory description": "remote access is managed"
+ },
+ {
+  "CVE ID": "cve-2012-0027",
+  "CVE description": "the gost engine in openssl before 1.0.0f does not properly handle invalid parameters for the gost block cipher, which allows remote attackers to cause a denial of service (daemon crash) via crafted data from a tls client.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2012-0884",
+  "CVE description": "the implementation of cryptographic message syntax (cms) and pkcs #7 in openssl before 0.9.8u and 1.x before 1.0.0h does not properly restrict certain oracle behavior, which makes it easier for context-dependent attackers to decrypt data via a million message attack (mma) adaptive chosen ciphertext attack.",
+  "NIST subcategory ID": "ID.AM-2",
+  "NIST subcategory description": "software platforms and applications within the organization are inventoried"
+ },
+ {
+  "CVE ID": "cve-2012-1165",
+  "CVE description": "the mime_param_cmp function in crypto\/asn1\/asn_mime.c in openssl before 0.9.8u and 1.x before 1.0.0h allows remote attackers to cause a denial of service (null pointer dereference and application crash) via a crafted s\/mime message, a different vulnerability than cve-2006-7250.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2012-2110",
+  "CVE description": "the asn1_d2i_read_bio function in crypto\/asn1\/a_d2i_fp.c in openssl before 0.9.8v, 1.0.0 before 1.0.0i, and 1.0.1 before 1.0.1a does not properly interpret integer data, which allows remote attackers to conduct buffer overflow attacks, and cause a denial of service (memory corruption) or possibly have unspecified other impact, via crafted der data, as demonstrated by an x.509 certificate or an rsa public key.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2016-2177",
+  "CVE description": "openssl through 1.0.2h incorrectly uses pointer arithmetic for heap-buffer boundary checks, which might allow remote attackers to cause a denial of service (integer overflow and application crash) or possibly have unspecified other impact by leveraging unexpected malloc behavior, related to s3_srvr.c, ssl_sess.c, and t1_lib.c.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2016-2178",
+  "CVE description": "the dsa_sign_setup function in crypto\/dsa\/dsa_ossl.c in openssl through 1.0.2h does not properly ensure the use of constant-time operations, which makes it easier for local users to discover a dsa private key via a timing side-channel attack.",
+  "NIST subcategory ID": "PR.AC-4",
+  "NIST subcategory description": "access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties"
+ },
+ {
+  "CVE ID": "cve-2016-2179",
+  "CVE description": "the dtls implementation in openssl before 1.1.0 does not properly restrict the lifetime of queue entries associated with unused out-of-order messages, which allows remote attackers to cause a denial of service (memory consumption) by maintaining many crafted dtls sessions simultaneously, related to d1_lib.c, statem_dtls.c, statem_lib.c, and statem_srvr.c.",
+  "NIST subcategory ID": "ID.AM-5",
+  "NIST subcategory description": "resources (e.g., hardware, devices, data, time, personnel, and software) are prioritized based on their classification, criticality, and business value"
+ },
+ {
+  "CVE ID": "cve-2016-2180",
+  "CVE description": "the ts_obj_print_bio function in crypto\/ts\/ts_lib.c in the x.509 public key infrastructure time-stamp protocol (tsp) implementation in openssl through 1.0.2h allows remote attackers to cause a denial of service (out-of-bounds read and application crash) via a crafted time-stamp file that is mishandled by the \"openssl ts\" command.",
+  "NIST subcategory ID": "ID.AM-5",
+  "NIST subcategory description": "resources (e.g., hardware, devices, data, time, personnel, and software) are prioritized based on their classification, criticality, and business value"
+ },
+ {
+  "CVE ID": "cve-2016-2181",
+  "CVE description": "the anti-replay feature in the dtls implementation in openssl before 1.1.0 mishandles early use of a new epoch number in conjunction with a large sequence number, which allows remote attackers to cause a denial of service (false-positive packet drops) via spoofed dtls records, related to rec_layer_d1.c and ssl3_record.c.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ },
+ {
+  "CVE ID": "cve-2016-2182",
+  "CVE description": "the bn_bn2dec function in crypto\/bn\/bn_print.c in openssl before 1.1.0 does not properly validate division results, which allows remote attackers to cause a denial of service (out-of-bounds write and application crash) or possibly have unspecified other impact via unknown vectors.",
+  "NIST subcategory ID": "PR.IP-9",
+  "NIST subcategory description": "response plans (incident response and business continuity) and recovery plans (incident recovery and disaster recovery) are in place and managed"
+ }
+]

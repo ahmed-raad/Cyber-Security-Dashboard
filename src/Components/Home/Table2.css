@@ -1,0 +1,46 @@
+#table-2 {
+  padding-left: 50px;
+  /* border-collapse: collapse; */
+  border-collapse: separate; /* Don't collapse */
+  border-spacing: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  font-size: 20px;
+  height: 67.8vh !important;
+  overflow-y: auto;
+}
+
+#table-2 th,
+#table-2 td {
+  width: 22em;
+  text-align: center;
+  font-size: 14px;
+  height: 100px;
+}
+
+#table-2 th {
+  border-top: 1px solid rgb(48, 48, 48);
+  border-bottom: 1px solid rgb(48, 48, 48);
+  border-right: 1px solid rgb(48, 48, 48);
+  position: sticky;
+  top: 0;
+  background-color: #6eb5d8;
+  color: azure;
+  height: 6.1vh;
+}
+
+#table-2 td {
+  border-bottom: 1px solid rgb(48, 48, 48);
+  border-right: 1px solid rgb(48, 48, 48);
+}
+
+#table-2 th:first-child,
+#table-2 td:first-child {
+  /* Apply a left border on the first <td> or <th> in a row */
+  border-left: 1px solid rgb(48, 48, 48);
+}
+
+#table-2 p {
+  max-height: 80px;
+  overflow-y: auto;
+}

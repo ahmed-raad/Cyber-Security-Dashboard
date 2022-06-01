@@ -1,0 +1,12 @@
+#map-container {
+  align-self: center;
+  border-bottom: 1px solid rgb(24, 24, 24);
+  margin: 0 auto;
+}
+
+#map-container h2 {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 50px;
+  font-size: 30px;
+}

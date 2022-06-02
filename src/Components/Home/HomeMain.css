@@ -62,12 +62,20 @@ span a:before {
   transform: rotateY(0deg) translateZ(25px);
 }
 
-.sign-up:before {
+/* .sign-up:before {
   content: "\f234";
 }
 
 .login:before {
   content: "\f2f6";
+} */
+
+.sign-up:before {
+  content: "Sign Up";
+}
+
+.login:before {
+  content: "Log In";
 }
 
 .sign-up:after {

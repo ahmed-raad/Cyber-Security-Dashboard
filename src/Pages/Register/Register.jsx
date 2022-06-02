@@ -1,17 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+
 import "./Register.css";
 
 const Register = () => {
   useEffect(() => {
     localStorage.setItem("page", "register");
   }, []);
+
+  const history = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const handleRegistration = (data) => console.log(data);
+
+  const handleRegistration = (data) => {
+    localStorage.setItem("email", data.email);
+    history("/dashboard");
+  };
+
   const handleError = (errors) => {};
 
   const registerOptions = {

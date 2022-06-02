@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import "./Login.css";
 
@@ -6,12 +8,20 @@ const Login = () => {
   useEffect(() => {
     localStorage.setItem("page", "login");
   }, []);
+
+  const history = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const handleRegistration = (data) => console.log(data);
+
+  const handleRegistration = (data) => {
+    localStorage.setItem("email", data.email);
+    history("/dashboard");
+  };
+
   const handleError = (errors) => {};
 
   const loginOptions = {

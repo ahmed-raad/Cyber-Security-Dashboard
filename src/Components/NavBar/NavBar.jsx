@@ -1,6 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,6 +17,8 @@ const date = `${current.getDate()}-${
 }-${current.getFullYear()}`;
 
 const Navbar = () => {
+  const history = useNavigate();
+
   console.log(window.location.pathname);
   return (
     <nav className="navbar">
@@ -45,18 +48,6 @@ const Navbar = () => {
                 to="/dashboard"
               >
                 <FontAwesomeIcon icon={faChartBar} /> Dashboard
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                onClick={() => {
-                  localStorage.setItem("page", "login");
-                  Location.reload();
-                }}
-                className="nav-link"
-                to="/login"
-              >
-                <FontAwesomeIcon icon={faSignIn} /> Login
               </NavLink>
             </li>
           </ul>

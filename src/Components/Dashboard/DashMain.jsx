@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Map from "./Map";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 
-import "./Home.css";
+import "./Dashboard.css";
 import Table2 from "./Table2";
 
-const Home = () => {
+const DashMain = () => {
   return (
     <React.Fragment>
-      <div id="home-main-container">
+      <div id="dash-main-container">
         <div>
           <section id="sec1">
             <Map />
@@ -30,4 +30,4 @@ const Home = () => {
     </React.Fragment>
   );
 };
-export default Home;
+export default DashMain;

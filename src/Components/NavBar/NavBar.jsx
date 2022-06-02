@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./NavBar.css";
+import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faChartBar,
   faSignOut,
+  faSignIn,
 } from "@fortawesome/free-solid-svg-icons";
 
 const current = new Date();
@@ -14,6 +16,7 @@ const date = `${current.getDate()}-${
 }-${current.getFullYear()}`;
 
 const Navbar = () => {
+  console.log(window.location.pathname);
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
@@ -21,44 +24,71 @@ const Navbar = () => {
         <li className="buttons">
           <ul>
             <li>
-              <a href="#">
+              <NavLink
+                onClick={() => {
+                  localStorage.setItem("page", "home");
+                  Location.reload();
+                }}
+                className="nav-link"
+                to="/"
+              >
                 <FontAwesomeIcon icon={faHome} /> Home
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faChartBar} /> Charts
-              </a>
+              <NavLink
+                onClick={() => {
+                  localStorage.setItem("page", "dashboard");
+                  Location.reload();
+                }}
+                className="nav-link"
+                to="/dashboard"
+              >
+                <FontAwesomeIcon icon={faChartBar} /> Dashboard
+              </NavLink>
             </li>
             <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faSignOut} /> Logout
-              </a>
+              <NavLink
+                onClick={() => {
+                  localStorage.setItem("page", "login");
+                  Location.reload();
+                }}
+                className="nav-link"
+                to="/login"
+              >
+                <FontAwesomeIcon icon={faSignIn} /> Login
+              </NavLink>
             </li>
           </ul>
         </li>
-        <li className="nav-item date">
-          <span>Date: {date}</span>
-          <span>Tunisia</span>
+        <li className="nav-item ">
+          <span className="date">Date: {date}</span>
+          Tunisia
         </li>
-        <li className="nav-item cve">
-          <table>
-            <thead>
-              <tr>
-                <th>Number of CVEs</th>
-                <th>Base Score</th>
-                <th>Severity Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,049,534</td>
-                <td>7.654010695</td>
-                <td>High</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
+        {localStorage.getItem("page") == "dashboard" ? (
+          <>
+            <li className="nav-item cve">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Number of CVEs</th>
+                    <th>Base Score</th>
+                    <th>Severity Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1,049,534</td>
+                    <td>7.654010695</td>
+                    <td>High</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
       </ul>
     </nav>
   );

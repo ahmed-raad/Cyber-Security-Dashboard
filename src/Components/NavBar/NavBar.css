@@ -21,7 +21,6 @@ nav {
   font-size: 16px;
   text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
-  cursor: default;
 }
 
 .logo {
@@ -34,13 +33,11 @@ nav {
 
 .date {
   border-bottom: 1px solid #b6b6b6;
-  width: 10em;
+  width: 80%;
   height: 1em;
-}
-
-.date span {
-  padding: 5px;
   display: block;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .cve {
@@ -73,6 +70,10 @@ nav {
   color: azure;
 }
 
+.active {
+  font-weight: 800;
+}
+
 .buttons a:hover {
-  color: #6eb5d8;
+  color: #7ac5eb;
 }

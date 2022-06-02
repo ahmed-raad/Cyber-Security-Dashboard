@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Table1 from "./Table1";
-import code from "../Home/code.png";
+import code from "../Dashboard/code.png";
 
 const Section2 = () => {
   return (

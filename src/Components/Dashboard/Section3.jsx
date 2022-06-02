@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 
 import Circle from "./Circle";
-import Table2 from "./Table2";
-import "./Home.css";
+import "./Dashboard.css";
 
 const Section3 = () => {
   return (

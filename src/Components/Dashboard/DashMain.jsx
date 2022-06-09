@@ -6,6 +6,7 @@ import Section3 from "./Section3";
 
 import "./Dashboard.css";
 import Table2 from "./Table2";
+import LineChart from "./LineChart";
 
 const DashMain = () => {
   return (
@@ -18,12 +19,14 @@ const DashMain = () => {
           <section>
             <Section2 />
           </section>
-
           <section id="sec3">
             <Section3 />
           </section>
           <section id="sec4">
             <Table2 />
+          </section>
+          <section id="sec5">
+            <LineChart />
           </section>
         </div>
       </div>

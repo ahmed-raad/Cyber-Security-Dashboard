@@ -17,48 +17,41 @@
 #sec2 {
   display: flex;
   margin-bottom: 50px;
-  justify-content: center;
   border-bottom: 1px solid rgb(24, 24, 24);
 }
 
-.sec2-img img {
-  height: 65vh;
-}
 /* End of Second Section */
 
 /* Third Section */
+
 #sec3-container {
-  border-top: 1px solid rgb(24, 24, 24);
   display: flex;
-  justify-items: space-evenly;
-  align-items: center;
-  padding: 20px 50px;
-  border-bottom: 1px solid rgb(24, 24, 24);
+  flex-direction: row-reverse;
+  justify-content: center;
 }
 
+.sec2-img img {
+  margin-top: 4vh;
+  margin-left: 10vh;
+  height: 65vh;
+}
 /* End of Third Section */
 
 /* Fourth Section */
 #sec4 {
-  border-top: 1px solid rgb(24, 24, 24);
-  padding: 50px 20px;
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-left: 50px;
+  padding: 50px 0px;
+  border-bottom: 1px solid rgb(24, 24, 24);
 }
 /* End of Fourth Section */
 
 /* Fifth Section */
-#sec5 {
-  border-top: 1px solid rgb(24, 24, 24);
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 
 #line-chart-container {
-  margin-left: auto;
-  margin-right: 5%;
+  right: -100px;
+  position: relative;
 }
 /* End of Fifth Section */

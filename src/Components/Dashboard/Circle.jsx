@@ -93,7 +93,7 @@ const Circle = () => {
           },
           showlegend: true,
           height: 500,
-          width: 1000,
+          width: 700,
         }}
       />
     </div>

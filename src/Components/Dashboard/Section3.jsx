@@ -1,16 +1,21 @@
 import React, { useEffect } from "react";
+import code from "../Dashboard/code.png";
 
 import Circle from "./Circle";
 import "./Dashboard.css";
 
 const Section3 = () => {
   return (
-    <div>
-      <h2 className="sec3-heading">Tunisia Cybersecurity Evaluation</h2>
-      <div>
-        <Circle />
+    <React.Fragment>
+      <div id="sec3-container">
+        <div>
+          <Circle />
+        </div>
+        <div className="sec2-img">
+          <img src={code} alt="" />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 export default Section3;

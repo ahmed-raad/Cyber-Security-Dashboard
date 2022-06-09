@@ -31,8 +31,8 @@ const LineChart = () => {
         ]}
         layout={{
           //   title: "multiple y-axes example",
-          width: 1200,
-          height: 500,
+          width: 1000,
+          height: 550,
           xaxis: { showgrid: false, domain: [0.1, 0.7] },
           yaxis: {
             title: "Total CVEs number",
